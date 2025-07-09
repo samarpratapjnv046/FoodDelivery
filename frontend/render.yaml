@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: frontend
+    env: static
+    staticPublishPath: build
+    buildCommand: npm run build
+    redirects:
+      - source: /*
+        destination: /index.html
+        status: 200
