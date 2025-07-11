@@ -1,21 +1,11 @@
 services:
   - type: web
-    name: fooddelivery-frontend
+    name: FoodDelivery-frontend
     env: static
     buildCommand: npm run build
     staticPublishPath: dist
     routes:
-      # 🔥 Rewrite all frontend routes to index.html
+      # 🔥 This rewrite fixes React Router DOM 404 on refresh
       - type: rewrite
         source: /*
         destination: /index.html
-
-      # ✅ Allow API routes to pass through to backend untouched
-      - type: proxy
-        source: /api/*
-        destination: https://your-backend-service.onrender.com/api/
-
-      # ✅ Allow uploads (images) to be accessed directly
-      - type: proxy
-        source: /uploads/*
-        destination: https://your-backend-service.onrender.com/uploads/
