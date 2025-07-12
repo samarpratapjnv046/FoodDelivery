@@ -1,4 +1,4 @@
-.food-display{
+/* .food-display{
     margin-top: 30px;
 }
 .food-display h2{
@@ -12,4 +12,41 @@
     gap: 30px;
     row-gap: 50px;
     
+} */
+
+
+
+/*  fot same size box  */
+
+.food-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 👈 ensures space used properly */
+    height: 100%; /* 👈 fill grid cell height */
 }
+
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    row-gap: 50px;
+    align-items: stretch; /* 👈 Ensures all grid items fill height */
+}
+
+
+.food-description {
+    overflow: visible;
+    text-overflow: initial;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .food-display-list {
+        grid-template-columns: 1fr; /* stack cards */
+    }
+}
+
