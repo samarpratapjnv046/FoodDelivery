@@ -8,6 +8,23 @@ import cartRouter from "./routes/cartRoutes.js"
 import orderRouter from "./routes/orderRoute.js"
 
 
+import path from "path";
+
+// serve frontend static files
+app.use(express.static(path.resolve('frontend/build')));
+
+// fallback for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('frontend/build/index.html'));
+});
+
+
+
+
+
+
+
+
 
 
 // app config
